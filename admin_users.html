@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=1">
+
+</head>
+<body>
+<div class="container">
+    <h2>User List</h2>
+    <form method="get">
+        <input type="text" name="filter" value="{{ filter }}" placeholder="Filter by name, surname or role">
+        <input type="submit" value="Search">
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.surname }}</td>
+                <td>{{ user.role }}</td>
+                <td class="{{ 'status-blocked' if user.blocked else 'status-active' }}">
+                    {{ 'Blocked' if user.blocked else 'Active' }}
+                </td>
+                <td>
+                    {% if user.role != 'admin' %}
+                        <a href="{{ url_for('admin_view_user', user_id=user.id) }}">View / </a>
+                        {% if user.blocked %}
+                            <a href="{{ url_for('unblock_user', user_id=user.id) }}">Unblock / </a>
+                        {% else %}
+                            <a href="{{ url_for('block_user', user_id=user.id) }}">Block / </a>
+                        {% endif %}
+                        <a href="{{ url_for('delete_user', user_id=user.id) }}" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
+                    {% else %}-{% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="logout" href="{{ url_for('dashboard') }}">Back</a>
+</div>
+</body>
+</html>
