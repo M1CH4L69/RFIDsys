@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=1">
+
+</head>
+<body>
+    <nav>
+        <div><strong>Admin</strong></div>
+        <div>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Admin Dashboard</h2>
+
+        <form action="{{ url_for('admin_users') }}" method="get">
+            <input type="submit" value="View user list">
+        </form>
+
+        <h3>ADD NEW USER</h3>
+        <form method="post" action="{{ url_for('admin_users') }}">
+            <label>UID:</label>
+            <input type="text" name="id" required>
+            <label>First name:</label>
+            <input type="text" name="first_name" required>
+            <label>Surname:</label>
+            <input type="text" name="last_name" required>
+            <label>Password:</label>
+            <input type="password" name="password" required>
+            <label>Role:</label>
+            <select name="role" required>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+            <input type="submit" value="Add user">
+        </form>
+    </div>
+</body>
+</html>
