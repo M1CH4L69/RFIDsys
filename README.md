@@ -103,8 +103,8 @@ Flask (webový framework)
 HTML/CSS (front-end) 
 pyodbc + FreeTDS (připojení k MS SQL) 
 MS SQL Server 
-Raspberry Pi 5 
-RFID čtečka (125kHz) 
+Raspberry Pi 5 - https://rpishop.cz/raspberry-pi-5/6498-raspberry-pi-5-8gb-ram.html 
+RFID čtečka (125kHz) - https://dratek.cz/arduino/954-usb-rfid-ctecka-125khz.html# 
 RFID (karty a čipy 125kHz) 
 
 Struktura programu: 
