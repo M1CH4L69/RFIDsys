@@ -37,7 +37,7 @@ Praha 2, Ječná 30, 120 00
  
 Michal Němec, C3b 
 
-Informační technologie 
+Počítačové systémy a sítě
 
  
 
