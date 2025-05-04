@@ -104,8 +104,8 @@ HTML/CSS (front-end)
 pyodbc + FreeTDS (připojení k MS SQL) 
 MS SQL Server 
 Raspberry Pi 5 
-RFID čtečka (125kh) 
-RFID (karty a čipy 125kh) 
+RFID čtečka (125kHz) 
+RFID (karty a čipy 125kHz) 
 
 Struktura programu: 
 app.py – hlavní Flask aplikace (funkce, správa webu a DB) 
